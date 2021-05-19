@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multidisproject_2/screen/loginpage.dart';
 import 'package:multidisproject_2/screen/homepage.dart';
-
+import 'package:percent_indicator/percent_indicator.dart';
 class MainHomePage extends StatefulWidget {
 
   @override
@@ -42,32 +42,31 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.pie_chart,
-                            color: Colors.green,
-                            size: 80.0,
-                          ),
-                          Text('Light Intensity', textAlign: TextAlign.center),
-                        ],
-                      ),
+                    child: CircularPercentIndicator(
+                    radius: 80.0,
+                    lineWidth: 8.0,
+                    percent: 0.8,
+                    center: new Icon(
+                      Icons.lightbulb,
+                      size: 50.0,
+                      color: Colors.amber,
                     ),
-
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.green,
+                  ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.pie_chart,
-                            color: Colors.green,
-                            size: 80.0,
-                          ),
-                          Text('Noise', textAlign: TextAlign.center),
-                        ],
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.5,
+                      center: new Icon(
+                        Icons.volume_up,
+                        size: 50.0,
+                        color: Colors.amber,
                       ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
                     ),
                   ),
                 ],
@@ -89,32 +88,31 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.pie_chart,
-                            color: Colors.green,
-                            size: 80.0,
-                          ),
-                          Text('Light Intensity', textAlign: TextAlign.center),
-                        ],
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.8,
+                      center: new Icon(
+                        Icons.lightbulb,
+                        size: 50.0,
+                        color: Colors.amber,
                       ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
                     ),
-
                   ),
                   Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.pie_chart,
-                            color: Colors.green,
-                            size: 80.0,
-                          ),
-                          Text('Noise', textAlign: TextAlign.center),
-                        ],
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.5,
+                      center: new Icon(
+                        Icons.volume_up,
+                        size: 50.0,
+                        color: Colors.amber,
                       ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
                     ),
                   ),
                 ],
@@ -136,31 +134,77 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.pie_chart,
-                            color: Colors.green,
-                            size: 80.0,
-                          ),
-                          Text('Light Intensity', textAlign: TextAlign.center),
-                        ],
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.8,
+                      center: new Icon(
+                        Icons.lightbulb,
+                        size: 50.0,
+                        color: Colors.amber,
                       ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
                     ),
                   ),
+                  Expanded(
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.6,
+                      center: new Icon(
+                        Icons.volume_up,
+                        size: 50.0,
+                        color: Colors.amber,
+                      ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
                   Expanded(
                     child: Container(
                       child: Column(
                         children: <Widget>[
                           Icon(
-                            Icons.pie_chart,
+                            Icons.computer,
                             color: Colors.green,
                             size: 80.0,
                           ),
-                          Text('Noise', textAlign: TextAlign.center),
+                          Text('ROOM 4'),
                         ],
                       ),
+                    ),
+                  ),
+                  Expanded(
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.8,
+                      center: new Icon(
+                        Icons.lightbulb,
+                        size: 50.0,
+                        color: Colors.amber,
+                      ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
+                    ),
+                  ),
+                  Expanded(
+                    child: CircularPercentIndicator(
+                      radius: 80.0,
+                      lineWidth: 8.0,
+                      percent: 0.6,
+                      center: new Icon(
+                        Icons.volume_up,
+                        size: 50.0,
+                        color: Colors.amber,
+                      ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.green,
                     ),
                   ),
                 ],

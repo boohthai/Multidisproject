@@ -15,7 +15,6 @@ class ReportPage extends StatefulWidget {
 }
 
 class _ReportPageState extends State<ReportPage> {
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -25,6 +24,7 @@ class _ReportPageState extends State<ReportPage> {
       ),
         body:
         Center (
+
           child: TableCalendar(
             firstDay: DateTime.utc(2010, 10, 16),
             lastDay: DateTime.utc(2030, 3, 14),
