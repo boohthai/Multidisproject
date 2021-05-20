@@ -12,13 +12,16 @@ class MainHomePage extends StatefulWidget {
 }
 
 class _MainHomePageState extends State<MainHomePage> {
+
+  var lightRoom1 =''  ;
+  var lightRoom2 =10  ;
+  var lightRoom3 =10  ;
+
   var noiseRoom1 =''  ;
   var noiseRoom2 =10  ;
   var noiseRoom3 =10  ;
 
-   var lightRoom1 =''  ;
-  var lightRoom2 =10  ;
-  var lightRoom3 =10  ;
+  
 
 
   @override
@@ -28,8 +31,9 @@ class _MainHomePageState extends State<MainHomePage> {
     builder: (BuildContext context,
               AsyncSnapshot snapshot){
                  if (snapshot.connectionState == ConnectionState.active){
-                    noiseRoom1 = snapshot.data.docs[3].data()['data'];
+
                     lightRoom1 = snapshot.data.docs[1].data()['data'];
+                    noiseRoom1 = snapshot.data.docs[3].data()['data'];
                 }
               return Scaffold(
                 appBar: AppBar (
@@ -46,7 +50,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.pink[50],
                             borderRadius: BorderRadius.circular(5),
                             boxShadow: [
                               BoxShadow(
@@ -65,7 +69,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.computer,
-                                    color: Colors.green,
+                                    color: Colors.pink,
                                     size: 80.0,
                                   ),
                                   Text('ROOM 1'),
@@ -108,7 +112,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.cyan[50],
                             borderRadius: BorderRadius.circular(5),
                             boxShadow: [
                               BoxShadow(
@@ -127,7 +131,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.computer,
-                                    color: Colors.green,
+                                    color: Colors.cyan,
                                     size: 80.0,
                                   ),
                                   Text('ROOM 2'),
@@ -165,13 +169,13 @@ class _MainHomePageState extends State<MainHomePage> {
                           ],
                         )
                     ),
-                            //ROW 2
+                            //ROW 3
                          Container(
                           margin: EdgeInsets.only(right:10, left:10, top:10),
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.green[50],
                             borderRadius: BorderRadius.circular(5),
                             boxShadow: [
                               BoxShadow(
@@ -228,15 +232,79 @@ class _MainHomePageState extends State<MainHomePage> {
                           ],
                         )
                     ),
+                    //ROW 4
+                            Container(
+                          margin: EdgeInsets.only(right:10, left:10, top:10),
+                          height: 100,//double.infinity,
+                          width: 450,//double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.orange[50],
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 2,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child:  Row (
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.computer,
+                                    color: Colors.orange,
+                                    size: 80.0,
+                                  ),
+                                  Text('ROOM 4'),
+                                
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              child: Column(
+                                children: <Widget>[
+                                  Text('Light Intensity', textAlign: TextAlign.center),
+                                  Text('${noiseRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              child: Column(
+                                children: <Widget>[
+                                  Text('Noise Intensity', textAlign: TextAlign.center),
+                                  Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+                          ),
+                          
+                          ],
+                        )
+                    ),
                     
                       
                       ],
                     )
                 ),
-    );
+              );
 
 
 
               });
+    // );
   }
 }

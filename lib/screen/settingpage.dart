@@ -91,7 +91,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Text("Set light thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
               ),
               ),
-
+              Text('${_currentLightValue}'),
               Slider(
                 value: _currentLightValue,
                 min: 0,
@@ -112,7 +112,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Text("Set sound thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
                 ),
               ),
-
+              Text('${_currentsoundValue}'),
               Slider(
                 value: _currentsoundValue,
                 min: 0,

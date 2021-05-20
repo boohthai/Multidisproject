@@ -255,8 +255,202 @@ class _ControlPageState extends State<ControlPage> {
 
 
                 ), 
-                Container(),
-                Container(),
+
+                //ROOM 3
+                Container(
+                          color: Colors.white,
+                  padding: EdgeInsets.all(50.0),
+                  child: Table(
+                    //defaultVerticalAlignment: Alignment.center,
+                    //border: TableBorder.all(color: Colors.black),
+                    children: [
+                      TableRow(children: [
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("DEVICES",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("STATUS",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                      ]),
+                      TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false, //buzzer1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceBuzzer
+                              //         .update({'data': 1})
+                              //     : databaseReferenceBuzzer
+                              //         .update({'data': 0}) ;
+                              // state ? buzzer1status = true :buzzer1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+                        TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Light 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false,//light1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceLight
+                              //         .update({'data': 1})
+                              //     : databaseReferenceLight
+                              //         .update({'data': 0}) ;
+                              // state ? light1status = true :light1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+
+                    ],
+                  ),
+
+
+                ),
+                // ROOM 4
+                Container(
+                              color: Colors.white,
+                  padding: EdgeInsets.all(50.0),
+                  child: Table(
+                    //defaultVerticalAlignment: Alignment.center,
+                    //border: TableBorder.all(color: Colors.black),
+                    children: [
+                      TableRow(children: [
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("DEVICES",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("STATUS",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                      ]),
+                      TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false, //buzzer1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceBuzzer
+                              //         .update({'data': 1})
+                              //     : databaseReferenceBuzzer
+                              //         .update({'data': 0}) ;
+                              // state ? buzzer1status = true :buzzer1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+                        TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Light 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false,//light1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceLight
+                              //         .update({'data': 1})
+                              //     : databaseReferenceLight
+                              //         .update({'data': 0}) ;
+                              // state ? light1status = true :light1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+
+                    ],
+                  ),
+
+                ),
               ],
             ),
           ),
