@@ -14,22 +14,32 @@ class _ControlPageState extends State<ControlPage> {
   bool status = false;
   bool status1 = false;
   bool status2 = false;
-  final databaseReferenceTest = FirebaseFirestore.instance.collection('switch').doc('switch1');
+
+  bool buzzer1status = false;
+  bool light1status = false;
+  final databaseReferenceBuzzer = FirebaseFirestore.instance.collection('room1_output').doc('led1');
+  final databaseReferenceLight = FirebaseFirestore.instance.collection('room1_output').doc('led2');
 
 
   @override
     Widget build(BuildContext context) {
-    //     return  StreamBuilder(
-    // stream: FirebaseFirestore.instance.collection("switch").snapshots(includeMetadataChanges: true),
-    // builder: (BuildContext context,
-    //           AsyncSnapshot snapshot) {  
+   var buzzer1 =0  ;
+    var light1 =0  ;
+  return  StreamBuilder(
+    stream: FirebaseFirestore.instance.collection("room1_output").snapshots(includeMetadataChanges: true),
+    builder: (BuildContext context,
+              AsyncSnapshot snapshot) {  
                  
-                // if (snapshot.connectionState == ConnectionState.active){
-                //    print(snapshot.data.docs[0].data()['data']);
-                //     var data = snapshot.data.docs[0].data()['data'];
-                //     if (data ==1){status = true;}
-                //     else {status = false;}
-                // }
+                if (snapshot.connectionState == ConnectionState.active){
+                   print(snapshot.data.docs[0].data()['data']);
+                    buzzer1 = snapshot.data.docs[0].data()['data'];
+                    light1 = snapshot.data.docs[1].data()['data'];
+                    if (buzzer1 ==0){buzzer1status = false;}
+                    else{buzzer1status =true;}
+
+                     if (light1 ==0){light1status = false;}
+                    else{light1status =true;}
+                }
       return new MaterialApp(
         home: DefaultTabController(
           length: 4,
@@ -48,6 +58,7 @@ class _ControlPageState extends State<ControlPage> {
             ),
             body: TabBarView(
               children: [
+                //ROOM 1
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.all(50.0),
@@ -93,44 +104,157 @@ class _ControlPageState extends State<ControlPage> {
                           margin: EdgeInsets.all(10),
                           padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child: Text('Light 1',style: TextStyle( fontSize: 26,))
+                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
                         ),
                         Container(
                           margin: EdgeInsets.all(10),
                           padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child: FlutterSwitch(
-                            width: 60.0,
-                            height: 25.0,
-                            valueFontSize: 10.0,
-                            toggleSize: 15.0,
-                            value: status,
-                            borderRadius: 30.0,
-                            padding: 8.0,
-                            showOnOff: true,
-                            onToggle: (val) {
-                               val
-                              ? databaseReferenceTest
-                                  .update({'data': '1'})
-                              : databaseReferenceTest
-                                  .update({'data': '0'}) ;
-                             
-
-                              setState(() {
-                                status = val;
-                              });
-                            },
-                          ),
+                          child:   Switch(
+                            value: buzzer1status,
+                            onChanged: (bool state) {
+                              state
+                                  ? databaseReferenceBuzzer
+                                      .update({'data': 1})
+                                  : databaseReferenceBuzzer
+                                      .update({'data': 0}) ;
+                              state ? buzzer1status = true :buzzer1status = false;
+                    }    ),
 
                         ),
                       ],
                       ),
-                     
-     
+                        TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Light 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: light1status,
+                            onChanged: (bool state) {
+                              state
+                                  ? databaseReferenceLight
+                                      .update({'data': 1})
+                                  : databaseReferenceLight
+                                      .update({'data': 0}) ;
+                              state ? light1status = true :light1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+
                     ],
                   ),
                 ),
-                Container(), //Room2
+
+
+
+                // ROOM  2
+                Container(
+                    color: Colors.white,
+                  padding: EdgeInsets.all(50.0),
+                  child: Table(
+                    //defaultVerticalAlignment: Alignment.center,
+                    //border: TableBorder.all(color: Colors.black),
+                    children: [
+                      TableRow(children: [
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("DEVICES",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.orange,
+                              border: Border.all(
+                                  color: Colors.orangeAccent, // Set border color
+                                  width: 3.0),   // Set border width
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0)), // Set rounded corner radius
+                              boxShadow: [BoxShadow(blurRadius: 10,color: Colors.black,offset: Offset(1,3))] // Make rounded corner of border
+                          ),
+                          child: Text("STATUS",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
+                        ),
+                      ]),
+                      TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false, //buzzer1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceBuzzer
+                              //         .update({'data': 1})
+                              //     : databaseReferenceBuzzer
+                              //         .update({'data': 0}) ;
+                              // state ? buzzer1status = true :buzzer1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+                        TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Light 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: false,//light1status,
+                            onChanged: (bool state) {
+                              // state
+                              //     ? databaseReferenceLight
+                              //         .update({'data': 1})
+                              //     : databaseReferenceLight
+                              //         .update({'data': 0}) ;
+                              // state ? light1status = true :light1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+
+                    ],
+                  ),
+
+
+                ), 
                 Container(),
                 Container(),
               ],
@@ -138,6 +262,6 @@ class _ControlPageState extends State<ControlPage> {
           ),
         ),
       );
-        // });
+        });
     }
 }
