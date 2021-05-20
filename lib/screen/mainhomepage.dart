@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multidisproject_2/screen/loginpage.dart';
 import 'package:multidisproject_2/screen/homepage.dart';
@@ -17,11 +19,7 @@ class _MainHomePageState extends State<MainHomePage> {
         title: Text ("Homepage"),
       ),
       body: Center (
-        // child: MaterialButton (
-        //   onPressed: ()  async {
-        //     await FirebaseAuth.instance.signOut();
-        //   },
-        //   child: Text("Sign out"),
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -208,6 +206,24 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                   ),
                 ],
+              ),
+              Container(
+                height: 150,
+                child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container (
+                  child:FlatButton (
+                    color: Colors.orangeAccent,
+                    minWidth: MediaQuery. of(context).size.width*0.25,
+                    shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
+                    onPressed: ()  async {
+                      await FirebaseAuth.instance.signOut();
+                    },
+                    child: Text("Sign out", style: TextStyle (fontSize: 20, color: Colors.white),),
+                  ),
+                ),
+
+              ),
               ),
             ],
           )

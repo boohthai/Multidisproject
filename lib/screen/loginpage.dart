@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       UserCredential userCredential = await FirebaseAuth
           .instance
-          .createUserWithEmailAndPassword(email: _email, password: _password);
+          .signInWithEmailAndPassword(email: _email, password: _password);
       print("User: $userCredential");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar (
         title: Text ("Login"),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: Center (
         child: Padding(
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(width: 2.0,),
+              SizedBox(height: 10.0,),
               TextField(
                 onChanged: (value) {
                   _password = value;
@@ -83,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.deepOrange,
                     shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
                     onPressed: _createUser,
-                    child: Text("Create new account"),
+                    child: Text("Create new account", style: TextStyle(color: Colors.white),),
                   ),
                 ],
               )
