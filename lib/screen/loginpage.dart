@@ -11,7 +11,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String _email = "";
   String _password ="";
-  //Size size = MediaQuery.of(context).size;
+  bool loginfail = false;
+  bool createfail = false;
+
   Future <void> _createUser() async {
     try {
       print("Email $_email");
@@ -21,8 +23,15 @@ class _LoginPageState extends State<LoginPage> {
       print("User: $userCredential");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
+      setState((){
+        createfail = true;
+      });
     }
-    catch(e) {print("Error: $e");}
+    catch(e) {print("Error: $e");
+      setState((){
+        createfail = true;
+      });}
+
     }
 
   Future <void> _login() async {
@@ -33,9 +42,17 @@ class _LoginPageState extends State<LoginPage> {
       print("User: $userCredential");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
+      setState((){
+        loginfail = true;
+      });
     }
-    catch(e) {print("Error: $e");}
+    catch(e) {print("Error: $e");
+      setState((){
+        loginfail = true;
+      });
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 decoration: InputDecoration (
                   hintText: "Your Email",
+                  errorText: createfail ? 'Email address is adready in use':null,
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -63,11 +81,14 @@ class _LoginPageState extends State<LoginPage> {
                 onChanged: (value) {
                   _password = value;
                 },
+                obscureText: true,
                 decoration: InputDecoration (
                   hintText: "Your Password",
+                  errorText: loginfail ? 'Wrong password':null,
                   border: OutlineInputBorder(),
                 ),
               ),
+              SizedBox(height: 10.0,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

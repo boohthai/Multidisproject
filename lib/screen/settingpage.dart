@@ -99,7 +99,7 @@ class _SettingPageState extends State<SettingPage> {
                 child: Text("Set light thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
               ),
               ),
-              Text('${_currentRangeValues}'),
+              Text('(${_currentRangeValues.start.round()},${_currentRangeValues.end.round()}) '),
               // Slider(
               //   value: _currentLightValue,
               //   min: 0,

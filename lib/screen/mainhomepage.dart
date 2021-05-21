@@ -38,7 +38,8 @@ class _MainHomePageState extends State<MainHomePage> {
                   backgroundColor: Colors.orangeAccent,
                   title: Text ("Homepage"),
                 ),
-                body: Center ( 
+                body: SingleChildScrollView(
+                  child:Center ( 
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -322,10 +323,12 @@ class _MainHomePageState extends State<MainHomePage> {
 
               ),
               ),
+              
                       
                       ],
                     )
                 ),
+                )
               );
 
 

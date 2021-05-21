@@ -98,32 +98,7 @@ class _ControlPageState extends State<ControlPage> {
                           child: Text("STATUS",style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold,),),
                         ),
                       ]),
-                      TableRow(children: [
-
-                        Container (
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
-                          alignment: Alignment.center,
-                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
-                        ),
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
-                          alignment: Alignment.center,
-                          child:   Switch(
-                            value: buzzer1status,
-                            onChanged: (bool state) {
-                              state
-                                  ? databaseReferenceBuzzer
-                                      .update({'data': 1})
-                                  : databaseReferenceBuzzer
-                                      .update({'data': 0}) ;
-                              state ? buzzer1status = true :buzzer1status = false;
-                    }    ),
-
-                        ),
-                      ],
-                      ),
+                   
                         TableRow(children: [
 
                         Container (
@@ -145,6 +120,32 @@ class _ControlPageState extends State<ControlPage> {
                                   : databaseReferenceLight
                                       .update({'data': 0}) ;
                               state ? light1status = true :light1status = false;
+                    }    ),
+
+                        ),
+                      ],
+                      ),
+                         TableRow(children: [
+
+                        Container (
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: Text('Buzzer 1',style: TextStyle( fontSize: 23,))
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child:   Switch(
+                            value: buzzer1status,
+                            onChanged: (bool state) {
+                              state
+                                  ? databaseReferenceBuzzer
+                                      .update({'data': 1})
+                                  : databaseReferenceBuzzer
+                                      .update({'data': 0}) ;
+                              state ? buzzer1status = true :buzzer1status = false;
                     }    ),
 
                         ),
