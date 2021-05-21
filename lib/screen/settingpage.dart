@@ -17,11 +17,15 @@ class _SettingPageState extends State<SettingPage> {
   bool status = false;
   double _currentLightValue =0;
   double _currentsoundValue = 0;
+  RangeValues  _currentRangeValues =RangeValues (40,80);
 
     final databaseReferenceBuzzer = FirebaseFirestore.instance.collection('room1_input').doc('noise_threshold');
-    final databaseReferenceLight = FirebaseFirestore.instance.collection('room1_input').doc('light_threshold');
+    final databaseReferenceLightMin = FirebaseFirestore.instance.collection('room1_input').doc('light_threshold_min');
+    final databaseReferenceLightMax = FirebaseFirestore.instance.collection('room1_input').doc('light_threshold_max');
+
   double sound = 1.1; 
-  double light = 1.1;
+  double lightMin = 1.1;
+  double lightMax = 2.2;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -30,16 +34,20 @@ class _SettingPageState extends State<SettingPage> {
               AsyncSnapshot snapshot){
                 
                  if (snapshot.connectionState == ConnectionState.active){
-                   print(snapshot.data.docs[2].data()['data']);
-                    sound = double.parse(snapshot.data.docs[2].data()['data']);
-                    light = double.parse(snapshot.data.docs[0].data()['data']);
+                    sound = double.parse(snapshot.data.docs[3].data()['data']);
+                    lightMin = double.parse(snapshot.data.docs[1].data()['data']);
+                    lightMax = double.parse(snapshot.data.docs[0].data()['data']);
                 }
                 
                 if (sound != _currentsoundValue){
                   _currentsoundValue = sound;
                 }
-                if (light != _currentLightValue){
-                  _currentLightValue = light;
+                // if (light != _currentLightValue){
+                //   _currentLightValue = light;
+                // }
+           
+                if (lightMin != _currentRangeValues.start || lightMax != _currentRangeValues.end){
+                  _currentRangeValues = RangeValues(lightMin,lightMax);
                 }
                 
     return Scaffold(
@@ -91,20 +99,38 @@ class _SettingPageState extends State<SettingPage> {
                 child: Text("Set light thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
               ),
               ),
-              Text('${_currentLightValue}'),
-              Slider(
-                value: _currentLightValue,
-                min: 0,
-                max: 250,
-                divisions:10,
-                label: _currentLightValue.round().toString(),
-                onChanged: (double value) {
-                setState(() {
-                databaseReferenceLight.update({'data': value.round().toString()});
-                _currentLightValue = value;
-                });
-              },
-              ),
+              Text('${_currentRangeValues}'),
+              // Slider(
+              //   value: _currentLightValue,
+              //   min: 0,
+              //   max: 250,
+              //   divisions:10,
+              //   label: _currentLightValue.round().toString(),
+              //   onChanged: (double value) {
+              //   setState(() {
+              //   databaseReferenceLight.update({'data': value.round().toString()});
+              //   _currentLightValue = value;
+              //   });
+              // },
+              // ),
+               RangeSlider(
+                  values: _currentRangeValues,
+                  min: 0,
+                  max: 250,
+                  divisions: 10,
+                  labels: RangeLabels(
+                    _currentRangeValues.start.round().toString(),
+                    _currentRangeValues.end.round().toString(),
+                  ),
+                  onChanged: (RangeValues values) {
+
+                    setState(() {
+                      databaseReferenceLightMin.update({'data': values.start.round().toString()});
+                      databaseReferenceLightMax.update({'data': values.end.round().toString()});
+                      _currentRangeValues = values;
+                    });
+                  },
+                ),
 
               Container(
                 alignment: Alignment.topLeft,
@@ -125,6 +151,7 @@ class _SettingPageState extends State<SettingPage> {
              
                 },
               ),
+              
             ],
           )
     );

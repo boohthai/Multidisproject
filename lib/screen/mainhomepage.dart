@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:multidisproject_2/screen/loginpage.dart';
 import 'package:multidisproject_2/screen/homepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 class MainHomePage extends StatefulWidget {
@@ -21,8 +22,6 @@ class _MainHomePageState extends State<MainHomePage> {
   var noiseRoom2 =10  ;
   var noiseRoom3 =10  ;
 
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +30,8 @@ class _MainHomePageState extends State<MainHomePage> {
     builder: (BuildContext context,
               AsyncSnapshot snapshot){
                  if (snapshot.connectionState == ConnectionState.active){
-
-                    lightRoom1 = snapshot.data.docs[1].data()['data'];
-                    noiseRoom1 = snapshot.data.docs[3].data()['data'];
+                    lightRoom1 = snapshot.data.docs[2].data()['data'];
+                    noiseRoom1 = snapshot.data.docs[4].data()['data'];
                 }
               return Scaffold(
                 appBar: AppBar (
@@ -46,12 +44,12 @@ class _MainHomePageState extends State<MainHomePage> {
                       children: <Widget>[
                         //ROW 1
                         Container(
-                          margin: EdgeInsets.only(right:10, left:10, top:10),
+                          margin: EdgeInsets.only(right:10, left:10, top:15),
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.pink[50],
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -70,7 +68,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                   Icon(
                                     Icons.computer,
                                     color: Colors.pink,
-                                    size: 80.0,
+                                    size: 75.0,
                                   ),
                                   Text('ROOM 1'),
                                 
@@ -80,8 +78,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Light Intensity', textAlign: TextAlign.center),
                                   Text('${lightRoom1}',style: TextStyle(fontSize: 25)),
@@ -93,8 +92,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
                                   Text('${noiseRoom1}',style: TextStyle(fontSize: 25)),
@@ -108,12 +108,12 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                     //ROW 2
                          Container(
-                          margin: EdgeInsets.only(right:10, left:10, top:10),
+                          margin: EdgeInsets.only(right:10, left:10, top:15),
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.cyan[50],
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -132,7 +132,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                   Icon(
                                     Icons.computer,
                                     color: Colors.cyan,
-                                    size: 80.0,
+                                    size: 75.0,
                                   ),
                                   Text('ROOM 2'),
                                 
@@ -142,8 +142,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Light Intensity', textAlign: TextAlign.center),
                                   Text('${noiseRoom2}',style: TextStyle(fontSize: 25)),
@@ -155,8 +156,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
                                   Text('${lightRoom2}',style: TextStyle(fontSize: 25)),
@@ -171,12 +173,12 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                             //ROW 3
                          Container(
-                          margin: EdgeInsets.only(right:10, left:10, top:10),
+                          margin: EdgeInsets.only(right:10, left:10, top:15),
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.green[50],
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -195,7 +197,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                   Icon(
                                     Icons.computer,
                                     color: Colors.green,
-                                    size: 80.0,
+                                    size: 75.0,
                                   ),
                                   Text('ROOM 3'),
                                 
@@ -205,9 +207,11 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
+                                  
                                   Text('Light Intensity', textAlign: TextAlign.center),
                                   Text('${noiseRoom3}',style: TextStyle(fontSize: 25)),
                                   
@@ -218,8 +222,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
                                   Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
@@ -233,13 +238,13 @@ class _MainHomePageState extends State<MainHomePage> {
                         )
                     ),
                     //ROW 4
-                            Container(
-                          margin: EdgeInsets.only(right:10, left:10, top:10),
+                         Container(
+                          margin: EdgeInsets.only(right:10, left:10, top:15, ),
                           height: 100,//double.infinity,
                           width: 450,//double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.orange[50],
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -258,9 +263,9 @@ class _MainHomePageState extends State<MainHomePage> {
                                   Icon(
                                     Icons.computer,
                                     color: Colors.orange,
-                                    size: 80.0,
+                                    size: 75.0,
                                   ),
-                                  Text('ROOM 4'),
+                                  Text('ROOM 3'),
                                 
                                 ],
                               ),
@@ -268,9 +273,11 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
+                                  
                                   Text('Light Intensity', textAlign: TextAlign.center),
                                   Text('${noiseRoom3}',style: TextStyle(fontSize: 25)),
                                   
@@ -281,8 +288,9 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                           Expanded(
                             child: Container(
-                              margin:  EdgeInsets.symmetric(vertical: 25),
+                              margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
                                   Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
@@ -295,7 +303,25 @@ class _MainHomePageState extends State<MainHomePage> {
                           ],
                         )
                     ),
-                    
+               
+                    Container(
+                height: 60,
+                child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container (
+                  child:FlatButton (
+                    color: Colors.orangeAccent,
+                    minWidth: MediaQuery. of(context).size.width*0.25,
+                    shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
+                    onPressed: ()  async {
+                      await FirebaseAuth.instance.signOut();
+                    },
+                    child: Text("Sign out", style: TextStyle (fontSize: 20, color: Colors.white),),
+                  ),
+                ),
+
+              ),
+              ),
                       
                       ],
                     )

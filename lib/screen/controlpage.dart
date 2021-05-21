@@ -18,7 +18,7 @@ class _ControlPageState extends State<ControlPage> {
   bool buzzer1status = false;
   bool light1status = false;
   final databaseReferenceBuzzer = FirebaseFirestore.instance.collection('room1_output').doc('led1');
-  final databaseReferenceLight = FirebaseFirestore.instance.collection('room1_output').doc('led2');
+  final databaseReferenceLight = FirebaseFirestore.instance.collection('room1_output').doc('light_relay_control');
 
 
   @override
@@ -31,13 +31,13 @@ class _ControlPageState extends State<ControlPage> {
               AsyncSnapshot snapshot) {  
                  
                 if (snapshot.connectionState == ConnectionState.active){
-                   print(snapshot.data.docs[0].data()['data']);
+                   print(snapshot.data.docs[2].data()['data']);
                     buzzer1 = snapshot.data.docs[0].data()['data'];
-                    light1 = snapshot.data.docs[1].data()['data'];
+                    light1 = snapshot.data.docs[2].data()['data'];
                     if (buzzer1 ==0){buzzer1status = false;}
                     else{buzzer1status =true;}
 
-                     if (light1 ==0){light1status = false;}
+                     if (light1 == 0){light1status = false;}
                     else{light1status =true;}
                 }
       return new MaterialApp(
@@ -130,7 +130,7 @@ class _ControlPageState extends State<ControlPage> {
                           margin: EdgeInsets.all(10),
                           padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child: Text('Light 1',style: TextStyle( fontSize: 23,))
+                          child: Text('Light 1',style: TextStyle( fontSize: 23))
                         ),
                         Container(
                           margin: EdgeInsets.all(10),
@@ -356,7 +356,7 @@ class _ControlPageState extends State<ControlPage> {
                 ),
                 // ROOM 4
                 Container(
-                              color: Colors.white,
+                                  color: Colors.white,
                   padding: EdgeInsets.all(50.0),
                   child: Table(
                     //defaultVerticalAlignment: Alignment.center,
