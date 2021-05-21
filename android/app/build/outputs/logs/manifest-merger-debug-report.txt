@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 ADDED from C:\Users\thait\AndroidStudioProjects\multidisproject_2\android\app\src\main\AndroidManifest.xml:1:1-41:12
 INJECTED from C:\Users\thait\AndroidStudioProjects\multidisproject_2\android\app\src\main\AndroidManifest.xml:1:1-41:12
 INJECTED from C:\Users\thait\AndroidStudioProjects\multidisproject_2\android\app\src\main\AndroidManifest.xml:1:1-41:12
@@ -347,6 +349,7 @@ ADDED from [com.google.android.gms:play-services-basement:17.1.0] C:\Users\thait
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:17.1.0] C:\Users\thait\.gradle\caches\transforms-2\files-2.1\b4abb3ae12fe055372984e118f8f9d66\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
 =======
+>>>>>>> main
 ADDED from /Users/GiaLePhuongg/Desktop/ProjectMQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:1:1-41:12
 INJECTED from /Users/GiaLePhuongg/Desktop/ProjectMQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:1:1-41:12
 INJECTED from /Users/GiaLePhuongg/Desktop/ProjectMQTT/Multidisproject/android/app/src/main/AndroidManifest.xml:1:1-41:12
@@ -763,4 +766,7 @@ ADDED from [com.google.android.gms:play-services-basement:17.1.0] /Users/GiaLePh
 		ADDED from [com.google.android.gms:play-services-basement:17.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/b4abb3ae12fe055372984e118f8f9d66/jetified-play-services-basement-17.1.0/AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:17.1.0] /Users/GiaLePhuongg/.gradle/caches/transforms-2/files-2.1/b4abb3ae12fe055372984e118f8f9d66/jetified-play-services-basement-17.1.0/AndroidManifest.xml:24:13-58
+<<<<<<< HEAD
+=======
 >>>>>>> GiaLe
+>>>>>>> main

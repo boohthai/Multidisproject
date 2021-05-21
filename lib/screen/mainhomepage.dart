@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:multidisproject_2/screen/loginpage.dart';
 import 'package:multidisproject_2/screen/homepage.dart';
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import 'package:percent_indicator/percent_indicator.dart';
 =======
+>>>>>>> main
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
+<<<<<<< HEAD
+=======
 >>>>>>> GiaLe
+>>>>>>> main
 class MainHomePage extends StatefulWidget {
 
   @override
@@ -32,6 +38,8 @@ class _MainHomePageState extends State<MainHomePage> {
   @override
   Widget build(BuildContext context) {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     return Scaffold(
       appBar: AppBar (
         backgroundColor: Colors.orangeAccent,
@@ -48,6 +56,7 @@ class _MainHomePageState extends State<MainHomePage> {
                     child: Container(
                       child: Column(
 =======
+>>>>>>> main
     return StreamBuilder(
     stream: FirebaseFirestore.instance.collection("room1_input").snapshots(includeMetadataChanges: true),
     builder: (BuildContext context,
@@ -84,7 +93,10 @@ class _MainHomePageState extends State<MainHomePage> {
                             ],
                           ),
                           child:  Row (
+<<<<<<< HEAD
+=======
 >>>>>>> GiaLe
+>>>>>>> main
                         children: <Widget>[
                           Expanded(
                             child: Container(
@@ -132,6 +144,8 @@ class _MainHomePageState extends State<MainHomePage> {
                         )
                     ),
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                   ),
                   Expanded(
                     child: CircularPercentIndicator(
@@ -160,6 +174,7 @@ class _MainHomePageState extends State<MainHomePage> {
                       backgroundColor: Colors.grey,
                       progressColor: Colors.green,
 =======
+>>>>>>> main
                     //ROW 2
                          Container(
                           margin: EdgeInsets.only(right:10, left:10, top:15),
@@ -206,6 +221,8 @@ class _MainHomePageState extends State<MainHomePage> {
                                 ],
                               ),
                             ),
+<<<<<<< HEAD
+=======
 
                           ),
                           Expanded(
@@ -273,12 +290,19 @@ class _MainHomePageState extends State<MainHomePage> {
                                 ],
                               ),
                             ),
+>>>>>>> main
 
                           ),
                           Expanded(
                             child: Container(
                               margin:  EdgeInsets.symmetric(vertical: 10),
                               child: Column(
+<<<<<<< HEAD
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Text('Noise Intensity', textAlign: TextAlign.center),
+                                  Text('${lightRoom2}',style: TextStyle(fontSize: 25)),
+=======
                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
@@ -378,6 +402,7 @@ class _MainHomePageState extends State<MainHomePage> {
                                 children: <Widget>[
                                   Text('Noise Intensity', textAlign: TextAlign.center),
                                   Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
+>>>>>>> main
                                   
                                 ],
                               ),
@@ -386,6 +411,140 @@ class _MainHomePageState extends State<MainHomePage> {
                           
                           ],
                         )
+<<<<<<< HEAD
+                    ),
+                            //ROW 3
+                         Container(
+                          margin: EdgeInsets.only(right:10, left:10, top:15),
+                          height: 100,//double.infinity,
+                          width: 450,//double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.green[50],
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 2,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child:  Row (
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.computer,
+                                    color: Colors.green,
+                                    size: 75.0,
+                                  ),
+                                  Text('ROOM 3'),
+                                
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  
+                                  Text('Light Intensity', textAlign: TextAlign.center),
+                                  Text('${noiseRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Text('Noise Intensity', textAlign: TextAlign.center),
+                                  Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+                          ),
+                          
+                          ],
+                        )
+                    ),
+                    //ROW 4
+                         Container(
+                          margin: EdgeInsets.only(right:10, left:10, top:15, ),
+                          height: 100,//double.infinity,
+                          width: 450,//double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.orange[50],
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 2,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child:  Row (
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.computer,
+                                    color: Colors.orange,
+                                    size: 75.0,
+                                  ),
+                                  Text('ROOM 3'),
+                                
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  
+                                  Text('Light Intensity', textAlign: TextAlign.center),
+                                  Text('${noiseRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin:  EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Text('Noise Intensity', textAlign: TextAlign.center),
+                                  Text('${lightRoom3}',style: TextStyle(fontSize: 25)),
+                                  
+                                ],
+                              ),
+                            ),
+                          ),
+                          
+                          ],
+                        )
+=======
 >>>>>>> GiaLe
                     ),
                
@@ -449,10 +608,29 @@ class _MainHomePageState extends State<MainHomePage> {
                       ),
                       backgroundColor: Colors.grey,
                       progressColor: Colors.green,
+>>>>>>> main
                     ),
+               
+                    Container(
+                height: 60,
+                child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container (
+                  child:FlatButton (
+                    color: Colors.orangeAccent,
+                    minWidth: MediaQuery. of(context).size.width*0.25,
+                    shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30.0) ),
+                    onPressed: ()  async {
+                      await FirebaseAuth.instance.signOut();
+                    },
+                    child: Text("Sign out", style: TextStyle (fontSize: 20, color: Colors.white),),
                   ),
-                ],
+                ),
+
               ),
+<<<<<<< HEAD
+              ),
+=======
               Row(
                 children: <Widget>[
                   Expanded(
@@ -523,6 +701,7 @@ class _MainHomePageState extends State<MainHomePage> {
     );
 =======
               ),
+>>>>>>> main
               
                       
                       ],
@@ -535,6 +714,9 @@ class _MainHomePageState extends State<MainHomePage> {
 
               });
     // );
+<<<<<<< HEAD
+=======
 >>>>>>> GiaLe
+>>>>>>> main
   }
 }
