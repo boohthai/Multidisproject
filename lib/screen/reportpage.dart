@@ -15,7 +15,6 @@ class ReportPage extends StatefulWidget {
 }
 
 class _ReportPageState extends State<ReportPage> {
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

@@ -61,9 +61,10 @@ class _SettingPageState extends State<SettingPage> {
             children: [
               Row(
                 children:<Widget> [
-                  Expanded(
-                    child: Text ("  Automatic Control", textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text ("Automatic Control",
+                      style: TextStyle(fontSize: 20,),
                     ),
                   ),
                   SizedBox( width: 50, height: 30,),
@@ -96,7 +97,7 @@ class _SettingPageState extends State<SettingPage> {
               Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Set light thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                child: Text("Set light thresholds", style: TextStyle(fontSize: 20,),
               ),
               ),
               Text('(${_currentRangeValues.start.round()},${_currentRangeValues.end.round()}) '),
@@ -135,7 +136,7 @@ class _SettingPageState extends State<SettingPage> {
               Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Set sound thresholds", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                child: Text("Set sound thresholds", style: TextStyle(fontSize: 20),
                 ),
               ),
               Text('${_currentsoundValue}'),

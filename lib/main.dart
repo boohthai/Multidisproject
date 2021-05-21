@@ -14,6 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        // Define the default brightness and colors
+        fontFamily: 'Poppins',
+
+      ),
       home: LandingPage(),
 
     );
