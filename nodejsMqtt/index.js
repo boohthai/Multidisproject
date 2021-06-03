@@ -85,15 +85,17 @@ const db = admin.firestore();
 async function AddNoiseRecord(value){
   const _data = {
     data: value,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString('en-GB',{hour12:false})
   };
+  console.log("noise record")
+  console.log(_data.date)
   const res = await db.collection('room1_noise_record').add(_data);
 }
 
 async function ChangeCurrentNoiseValue(value){
   const _data = {
     data: value,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString('en-GB',{hour12:false})
   };
   const res = await db.collection('room1_input').doc('noise_value').set(_data);
 }
@@ -107,15 +109,17 @@ async function GetNoiseThreshold(){
 async function AddLightRecord(value){
     const _data = {
       data: value,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString('en-GB',{hour12:false})
     };
+    console.log("light record")
+    console.log(_data.date)
     const res = await db.collection('room1_light_record').add(_data);
 }
   
 async function ChangeCurrentLightValue(value){
     const _data = {
       data: value,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString('en-GB',{hour12:false})
     };
     const res = await db.collection('room1_input').doc('light_value').set(_data);
 }
@@ -135,7 +139,7 @@ async function GetLightThresholdMin(){
 async function ChangeCurrentLed1Value(value){
   const _data = {
     data: value,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString('en-GB',{hour12:false})
   };
   const res = await db.collection('room1_output').doc('led1').set(_data);
 }
@@ -143,8 +147,9 @@ async function ChangeCurrentLed1Value(value){
 async function ChangeLightRelayValue(value){
   const _data = {
     data: value,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString('en-GB',{hour12:false})
   };
+  
   const res = await db.collection('room1_output').doc('light_relay_control').set(_data);
 }
 
