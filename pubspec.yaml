@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
   firebase_core: "^0.7.0"
   firebase_auth: "^0.20.1"
   firebase_database: "^6.0.0"
@@ -33,10 +34,26 @@ dependencies:
   add_2_calendar: ^2.1.0
   table_calendar: ^3.0.0
   percent_indicator: ^2.1.3
+  flutter_material_color_picker: ^1.0.5
+  
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_svg: ^0.22.0
+  google_fonts: ^1.1.2
+  flutter_staggered_grid_view: ^0.4.0
+  fl_chart: ^0.36.1
+  charts_flutter: ^0.10.0
+  intl: ^0.17.0
+  flutter_cupertino_date_picker: ^1.0.26+2
+  syncfusion_flutter_sliders: ^19.1.67-beta
+  provider: ^5.0.0
+  # shared_preferences: ^2.0.6
+
+
+
 dependency_overrides:
   intl: ^0.17.0
 dev_dependencies:
@@ -53,6 +70,34 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/bk.jpeg
+    - assets/bk1.jpeg
+    - assets/bk2.jpeg
+    - assets/bk3.jpeg
+    - assets/bk4.jpeg
+    - assets/bk5.png
+    - assets/bk6.png
+    - assets/logo.png
+    - assets/lights.png
+    - assets/noise.png
+    - assets/read.png
+    - assets/idea.png
+    - assets/conversation.png
+    - assets/bell.png
+    - assets/monitor_1.png
+    - assets/monitor.png
+    - assets/desktop-computer.png
+    - assets/listening.png
+    - assets/bell_on.png
+    - assets/bell_off.png
+    - assets/bell.png
+    - assets/lamp_on.png
+    - assets/lamp_off.png
+    
+  
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
