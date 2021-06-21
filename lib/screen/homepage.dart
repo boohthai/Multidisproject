@@ -20,8 +20,9 @@ class _HomepageState extends State<Homepage> {
   final _pageOptions = [
     MainHomePage(),
     ControlPage(),
-    SettingPage(),
     ReportPage(),
+    SettingPage(),
+    
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -37,15 +38,21 @@ class _HomepageState extends State<Homepage> {
         ),
         bottomNavigationBar:
         BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items:  <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.white,),
+              icon: Icon(Icons.home, ),//color: Colors.black,),
               label: "Home",
-              backgroundColor: Colors.orangeAccent,
+              backgroundColor:Colors.orangeAccent // Theme.of(context).primaryColor//Colors.orangeAccent,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.toggle_on),
               label: 'Control',
+              backgroundColor: Colors.orangeAccent,
+            ),
+            
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assessment),
+              label: 'Report',
               backgroundColor: Colors.orangeAccent,
             ),
             BottomNavigationBarItem(
@@ -53,16 +60,13 @@ class _HomepageState extends State<Homepage> {
               label: 'Setting',
               backgroundColor: Colors.orangeAccent,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.assessment),
-              label: 'Report',
-              backgroundColor: Colors.orangeAccent,
-            ),
           ],
+
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.white,
           onTap: _onItemTapped,
         ),
+        
     );
 
   }
